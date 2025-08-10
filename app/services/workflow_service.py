@@ -32,7 +32,10 @@ class WorkflowService:
 
         return workflow
 
-    def process_message(self, message: str) -> dict:
+    def process_message(self, message: str, session_id: str = None) -> dict:
         """Process a message through the workflow"""
-        result = self.app.invoke({"messages": [{"role": "user", "content": message}]})
+        result = self.app.invoke({
+            "messages": [{"role": "user", "content": message}],
+            "session_id": session_id
+        })
         return result

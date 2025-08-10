@@ -44,3 +44,25 @@ class ErrorResponse(BaseModel):
     error: str
     detail: Optional[str] = None
     timestamp: datetime
+
+
+class SessionStatsResponse(BaseModel):
+    """Model for session statistics responses"""
+    session_id: str
+    message_count: int
+    created_at: datetime
+    last_accessed: datetime
+    is_expired: bool
+
+
+class SessionListResponse(BaseModel):
+    """Model for session list responses"""
+    sessions: List[str]
+    total_count: int
+
+
+class ConversationHistoryResponse(BaseModel):
+    """Model for conversation history responses"""
+    session_id: str
+    messages: List[ChatMessage]
+    total_messages: int

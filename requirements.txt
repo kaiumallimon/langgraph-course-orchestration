@@ -3,3 +3,4 @@ langgraph
 python-dotenv
 langchain[anthropic]
 fastapi[standard]
+uvicorn[standard]
